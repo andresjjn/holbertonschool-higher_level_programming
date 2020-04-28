@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-for let in range(ord('a'), ord('z') + 1):
-    let = chr(let)
-    if let not in "qe":
-        print(let, end="")
+for alpha_letters in range(ord('a'), ord('z')+1):
+    if alpha_letters not in [101, 113]:
+        print("{:c}".format(alpha_letters), end="")
