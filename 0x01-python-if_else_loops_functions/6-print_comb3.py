@@ -9,5 +9,5 @@ while dec < 9:
         else:
             print("{:d}, ".format(uni), end="")
         uni += 1
-    uni = dec + 1
+    uni = dec + 2
     dec += 1
