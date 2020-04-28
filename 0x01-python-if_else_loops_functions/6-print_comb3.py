@@ -6,7 +6,7 @@ while dec < 9:
         print("{:d}".format(dec), end="")
         if dec == 8 and uni == 9:
             print("{:d}".format(uni))
-        else: 
+        else:
             print("{:d}, ".format(uni), end="")
         uni += 1
     uni = dec + 1
