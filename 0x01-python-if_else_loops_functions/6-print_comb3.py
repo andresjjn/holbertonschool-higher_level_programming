@@ -1,6 +1,13 @@
 #!/usr/bin/python3
-for num in range(0, 99):
-    if num != 89 and num % 10 > num / 10:
-        print("{:02d}, ".format(num), end="")
-    elif num % 10 > num / 10:
-        print("{:d}".format(num))
+dec = 0
+uni = 1
+while dec < 9:
+    while uni < 10:
+        print("{:d}".format(dec), end="")
+        if dec == 8 and uni == 9:
+            print("{:d}".format(uni))
+        else:
+            print("{:d}".format(uni), end=", ")
+        uni += 1
+    uni = dec + 1
+    dec += 1
