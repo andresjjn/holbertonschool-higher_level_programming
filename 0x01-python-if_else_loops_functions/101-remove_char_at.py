@@ -9,4 +9,3 @@ def remove_char_at(str, n):
             tem[re] = str[re + 1]
     str1 = ''.join(tem)
     return (str1)
-    
