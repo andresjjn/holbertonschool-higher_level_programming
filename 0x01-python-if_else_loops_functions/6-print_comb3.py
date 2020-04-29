@@ -1,8 +1,6 @@
 #!/usr/bin/python3
-dec = 0
-uni = 1
-while dec < 9:
-    while uni < 10:
+for dec in range(0, 9):
+    for uni in range(1, 10):
         print("{:d}".format(dec), end="")
         if dec == 8 and uni == 9:
             print("{:d}".format(uni))
