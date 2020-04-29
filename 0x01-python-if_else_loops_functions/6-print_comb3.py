@@ -4,6 +4,6 @@ for dec in range(0, 9):
         if dec < uni:
             print("{:d}".format(dec), end="")
             if dec == 8 and uni == 9:
-                print("{:d}".format(uni))
+                print(uni)
             else:
                 print("{:d}".format(uni), end=", ")
