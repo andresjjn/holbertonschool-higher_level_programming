@@ -1,9 +1,7 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 def uniq_add(my_list=[]):
-    add = my_list[0]
-    my_list_cpy = my_list.copy()
-    my_list_cpy.sort()
-    for i in range(len(my_list_cpy) - 1):
-        if (my_list_cpy[i] != my_list_cpy[i + 1]):
-            add += my_list_cpy[i + 1]
-    return add
+    count = 0
+    new_list = list(dict.fromkeys(my_list))
+    for l in new_list:
+        count += l
+    return count
