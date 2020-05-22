@@ -12,7 +12,7 @@ def matrix_divided(matrix, div):
     """Divide matrix module
     Args:
         matrix (int or float) = Dividend matrix
-        div (int or float) = Divisor number 
+        div (int or float) = Divisor number
     Reises:
         TypeError:
             - Matrix with different values of int or float numbers
@@ -22,7 +22,7 @@ def matrix_divided(matrix, div):
     Return:
         New matrix with values of matrix divided by div value
     """
-    if not type (div) in (int, float):
+    if not type(div) in (int, float):
         raise TypeError("div must be a number")
     if div == 0:
         raise ZeroDivisionError("division by zero")
@@ -31,10 +31,12 @@ def matrix_divided(matrix, div):
     for row in range(len(matrix)):
         if row < len(matrix) - 1:
             if size != len(matrix[row + 1]):
-                raise TypeError("Each row of the matrix must have the same size") 
+                raise TypeError
+                ("Each row of the matrix must have the same size")
         for col in range(len(matrix[0])):
             if type(matrix[row][col]) in (int, float):
                 new_list[row][col] = round(matrix[row][col]/div, 2)
             else:
-                raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+                raise TypeError
+                ("matrix must be a matrix (list of lists) of integers/floats")
     return new_list

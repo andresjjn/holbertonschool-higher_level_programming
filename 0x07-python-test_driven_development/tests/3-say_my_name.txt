@@ -1,0 +1,48 @@
+=================================
+ Test for module 3-say_my_name.txt
+=================================
+
+Import module:
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Cases:
+    >>> say_my_name("Jesse", "pinkman")
+    My name is Jesse pinkman
+
+    >>> say_my_name("El Gustavo", "Fring")
+    My name is El Gustavo Fring
+
+    >>> say_my_name("El Gustavo", str(3453))
+    My name is El Gustavo 3453
+
+    >>> say_my_name(None, "Fring")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name("El Gustavo", None)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+    >>> say_my_name()
+    Traceback (most recent call last):
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+    >>> say_my_name("El Gustavo", 23)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+    >>> say_my_name(54, 43)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name("El Gustavo", "Fring", "Pollos hermanos")
+    Traceback (most recent call last):
+    TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
+
+    >>> say_my_name()
+    Traceback (most recent call last):
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+    >>> say_my_name("El Gustavo", True)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
