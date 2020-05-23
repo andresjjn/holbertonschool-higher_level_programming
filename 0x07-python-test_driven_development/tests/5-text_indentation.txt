@@ -1,0 +1,45 @@
+======================================
+ Test for module 5-text_indentation.py 
+======================================
+
+Import module:
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Cases:
+    >>> text_indentation("""Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
+    ... Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? \
+    ... Non autem hoc: """) 
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    <BLANKLINE>
+    Quonam modo?
+    <BLANKLINE>
+    Utrum igitur tibi litteram videor an totas paginas commovere?
+    <BLANKLINE>
+    Non autem hoc:
+    <BLANKLINE>
+
+    >>> text_indentation("...help")
+    .
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    help
+
+    >>> text_indentation(0)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+    >>> text_indentation('?')
+    ?
+    <BLANKLINE>
+
+    >>> text_indentation('Sample: sample')
+    Sample:
+    <BLANKLINE>
+    sample
+
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    TypeError: text must be a string
