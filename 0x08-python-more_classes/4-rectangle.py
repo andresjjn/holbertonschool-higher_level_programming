@@ -42,7 +42,7 @@ class Rectangle:
     def __repr__(self):
         """Repr method"""
         return "Rectangle(" + str(self.__width)\
-                + ", " + str(self.__height) + ")"
+            + ", " + str(self.__height) + ")"
 
     @property
     def width(self):

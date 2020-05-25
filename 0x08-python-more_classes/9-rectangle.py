@@ -128,3 +128,8 @@ class Rectangle:
             return rect_1
         else:
             return rect_1
+
+    @classmethod
+    def square(cls, size=0):
+        """Class method to create a square object"""
+        return cls(size, size)
