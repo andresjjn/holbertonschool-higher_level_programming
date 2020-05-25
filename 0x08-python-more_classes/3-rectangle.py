@@ -28,6 +28,7 @@ class Rectangle:
             raise ValueError("height must be >= 0")
 
     def __str__(self):
+        """Str method"""
         if self.__width == 0 or self.__height == 0:
             return ""
         _str = []

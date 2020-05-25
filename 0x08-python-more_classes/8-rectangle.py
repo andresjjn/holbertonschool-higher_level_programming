@@ -32,6 +32,7 @@ class Rectangle:
             raise ValueError("height must be >= 0")
 
     def __str__(self):
+        """Str method"""
         if self.__width == 0 or self.__height == 0:
             return ""
         _str = []
@@ -43,10 +44,12 @@ class Rectangle:
         return "".join(map(str, _str))
 
     def __repr__(self):
+        """Repr method"""
         return "Rectangle(" + str(self.__width)\
                 + ", " + str(self.__height) + ")"
 
     def __del__(self):
+        """Del method"""
         type(self).number_of_instances -= 1
         print("Bye rectangle...")
 
@@ -108,6 +111,13 @@ class Rectangle:
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
+        """Comparator of areas
+        Args:
+            rect_1: Area 1 to compare
+            rect_2: Area 2 to compare
+        Raises:
+            TypeError: The instace is not form rectangle class.
+        """
         if not isinstance(rect_1, Rectangle):
             raise TypeError("rect_1 must be an instance of Rectangle")
         if not isinstance(rect_2, Rectangle):

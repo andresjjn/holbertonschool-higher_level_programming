@@ -28,6 +28,7 @@ class Rectangle:
             raise ValueError("height must be >= 0")
 
     def __str__(self):
+        """Str method"""
         if self.__width == 0 or self.__height == 0:
             return ""
         _str = []
@@ -39,10 +40,12 @@ class Rectangle:
         return "".join(map(str, _str))
 
     def __repr__(self):
+        """Repr method"""
         return "Rectangle(" + str(self.__width)\
                 + ", " + str(self.__height) + ")"
 
     def __del__(self):
+        """Del method"""
         print("Bye rectangle...")
 
     @property
