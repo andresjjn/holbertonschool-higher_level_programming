@@ -1,0 +1,37 @@
+=================================
+ Test for module 1-my_list
+=================================
+
+Import module:
+    >>> MyList = __import__('1-my_list').MyList
+
+Cases:
+    >>> my_list = MyList()
+    
+    >>> my_list.append(9)
+    
+    >>> my_list.append(2)
+    
+    >>> my_list.print_sorted()
+    [2, 9]
+
+    >>> my_list2 = MyList()
+
+    >>> my_list2.print_sorted()
+    []
+
+    >>> my_list3 = MyList()
+
+    >>> my_list3.append((3, 2))
+    
+    >>> my_list3.append((8, 5))
+    
+    >>> my_list3.print_sorted()
+    [(3, 2), (8, 5)]
+
+    >>> my_list4 = MyList()
+
+    >>> my_list4.append(None)
+    
+    >>> my_list4.print_sorted()
+    [None]
