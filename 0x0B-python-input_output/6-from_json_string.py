@@ -1,0 +1,9 @@
+#!/usr/bin/python3
+"""This file containt a function that returns an object
+(Python data structure) represented by a JSON string"""
+import json
+
+
+def from_json_string(my_str):
+    """Function that returns the object representation from json string"""
+    return json.loads(my_str)
