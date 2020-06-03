@@ -51,4 +51,31 @@ Cases:
     >>> bg.integer_validator()
     Traceback (most recent call last):
     TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
-    
+
+    >>> bg.area()
+    Traceback (most recent call last):
+    Exception: area() is not implemented
+
+    >>> bg.integer_validator("perro", None)
+    Traceback (most recent call last):
+    TypeError: perro must be an integer
+
+    >>> bg.integer_validator("perro", False)
+    Traceback (most recent call last):
+    ValueError: perro must be greater than 0
+
+    >>> bg.integer_validator("perro", True)
+    Traceback (most recent call last):
+    TypeError: perro must be an integer
+
+    >>> bg.integer_validator("perro", [9, 89])
+    Traceback (most recent call last):
+    TypeError: perro must be an integer
+
+    >>> bg.integer_validator("perro", {9, 89})
+    Traceback (most recent call last):
+    TypeError: perro must be an integer
+
+    >>> bg.integer_validator("perro", (9, 89))
+    Traceback (most recent call last):
+    TypeError: perro must be an integer
