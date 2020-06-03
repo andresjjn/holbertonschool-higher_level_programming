@@ -27,7 +27,7 @@ class Rectangle(BaseGeometry):
         """Method to initialize the attributes of the class
         """
         BaseGeometry.__init__(self)
+        super().integer_validator("width", width)
+        super().integer_validator("height", height)
         self.__width = width
         self.__height = height
-        super().integer_validator("width", self.__width)
-        super().integer_validator("height", self.__height)
