@@ -27,7 +27,7 @@ class Student:
                     if i == an:
                         b.update({i: self.__dict__[i]})
         return b
-        
+
     def reload_from_json(self, json):
         """Method to replaces all attributes of the Student instance"""
         for i in json:
