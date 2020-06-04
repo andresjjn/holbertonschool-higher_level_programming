@@ -23,7 +23,7 @@ class Student:
             return self.__dict__
         elif type(attrs) == list:
             for i in attrs:
-                for an in self.__dict__:
+                for an in sorted(self.__dict__):
                     if i == an:
                         b.update({i: self.__dict__[i]})
         return b
