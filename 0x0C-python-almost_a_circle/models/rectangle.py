@@ -6,7 +6,6 @@ from models.base import Base
 class Rectangle(Base):
     """Class Rectangle inherits from Base"""
 
-
     def __init__(self, width, height, x=0, y=0, id=None):
         """Class constructor
         Args:
@@ -33,7 +32,8 @@ class Rectangle(Base):
         """Name: Name of instance to check.
         Raises:
             TypeError: The new width value couldn't be different an integer.
-            ValueError: The new width value couldn't be less or equal than 0."""
+            ValueError: The new width value couldn't be less or equal than 0.
+        """
         if name == "width" or name == "height":
             if type(value) != int:
                 raise TypeError("%s must be an integer" % name)
@@ -44,6 +44,27 @@ class Rectangle(Base):
                 raise TypeError("%s must be an integer" % name)
             if value < 0:
                 raise ValueError("%s must be >= 0" % name)
+
+    def area(self):
+        """Calculate the area of a rectangle
+        Args:
+            width (int): Width of rectangle
+            height (int): Height of rectangle
+        Returns:
+            Area of the Rectangle.
+        """
+        return self.__width * self.__height
+
+    def display(self):
+        """Prints in stdout the Rectangle instance with the character #
+        Args:
+            width (int): Width of rectangle
+            height (int): Height of rectangle
+        """
+        for i in range(self.height):
+            for j in range(self.width):
+                print("#", end="")
+            print("")
 
     @property
     def width(self):
@@ -112,3 +133,39 @@ class Rectangle(Base):
         """
         Rectangle.integer_validator("y", value)
         self.__y = value
+
+    def __str__(self):
+        """Str method
+        Return:
+            Value to print"""
+        return "[Rectangle] (%d) %d/%d - %d/%d" % \
+            (self.id, self.__x, self.__y, self.width, self.height)
+
+    def update(self, *args, **kwargs):
+        """update method
+        Args:
+            All attributes"""
+        for i in range(len(args)):
+            if i == 0:
+                self.id = args[i]
+            elif i == 1:
+                self.__width = args[i]
+            elif i == 2:
+                self.__height = args[i]
+            elif i == 3:
+                self.__x = args[i]
+            elif i == 4:
+                self.__y = args[i]
+            return
+        if kwargs is not None:
+            for key, value in kwargs.items():
+                if key == "id":
+                    self.id = value
+                elif key == "width":
+                    self.__width = value
+                elif key == "height":
+                    self.__height = value
+                elif key == "x":
+                    self.__x = value
+                elif key == "y":
+                    self.__y = value
