@@ -14,13 +14,13 @@ class Rectangle(Base):
             x (int): x position
             y (int): y coordinate"""
 
-        self.__width = width
+        self.width = width
         Rectangle.integer_validator("width", width)
-        self.__height = height
+        self.height = height
         Rectangle.integer_validator("height", height)
-        self.__x = x
+        self.x = x
         Rectangle.integer_validator("x", x)
-        self.__y = y
+        self.y = y
         Rectangle.integer_validator("y", y)
         if id is not None:
             self.id = id
@@ -34,16 +34,17 @@ class Rectangle(Base):
             TypeError: The new width value couldn't be different an integer.
             ValueError: The new width value couldn't be less or equal than 0.
         """
-        if name == "width" or name == "height":
-            if type(value) != int:
-                raise TypeError("%s must be an integer" % name)
-            if value <= 0:
-                raise ValueError("%s must be > 0" % name)
-        elif name == "x" or name == "y":
+
+        if name == "x" or name == "y":
             if type(value) != int:
                 raise TypeError("%s must be an integer" % name)
             if value < 0:
                 raise ValueError("%s must be >= 0" % name)
+        else:
+            if type(value) != int:
+                raise TypeError("%s must be an integer" % name)
+            if value <= 0:
+                raise ValueError("%s must be > 0" % name)
 
     def area(self):
         """Calculate the area of a rectangle
@@ -61,14 +62,18 @@ class Rectangle(Base):
             width (int): Width of rectangle
             height (int): Height of rectangle
         """
+        for a in range(self.y):
+            print("")
         for i in range(self.height):
+            for b in range(self.x):
+                    print(" ", end="")
             for j in range(self.width):
                 print("#", end="")
             print("")
 
     @property
     def width(self):
-        """Getter funtion to width"""
+        """Getter method width"""
         return self.__width
 
     @width.setter
@@ -85,7 +90,7 @@ class Rectangle(Base):
 
     @property
     def height(self):
-        """Getter funtion to height"""
+        """Getter method height"""
         return self.__height
 
     @height.setter
@@ -102,7 +107,7 @@ class Rectangle(Base):
 
     @property
     def x(self):
-        """Getter funtion to x"""
+        """Getter method x"""
         return self.__x
 
     @x.setter
@@ -119,7 +124,7 @@ class Rectangle(Base):
 
     @property
     def y(self):
-        """Getter funtion to y"""
+        """Getter method y"""
         return self.__y
 
     @y.setter
@@ -141,11 +146,24 @@ class Rectangle(Base):
         return "[Rectangle] (%d) %d/%d - %d/%d" % \
             (self.id, self.__x, self.__y, self.width, self.height)
 
+    def to_dictionary(self):
+        """Method to return dictionary with all instances"""
+        a = dict()
+        a["x"] = self.x
+        a["y"] = self.y
+        a["id"] = self.id
+        a["height"] = self.height
+        a["width"] = self.width
+        return a
+        
+
     def update(self, *args, **kwargs):
         """update method
         Args:
             All attributes"""
+        a = 0
         for i in range(len(args)):
+            a += 1
             if i == 0:
                 self.id = args[i]
             elif i == 1:
@@ -156,16 +174,18 @@ class Rectangle(Base):
                 self.__x = args[i]
             elif i == 4:
                 self.__y = args[i]
-            return
-        if kwargs is not None:
-            for key, value in kwargs.items():
-                if key == "id":
-                    self.id = value
-                elif key == "width":
-                    self.__width = value
-                elif key == "height":
-                    self.__height = value
-                elif key == "x":
-                    self.__x = value
-                elif key == "y":
-                    self.__y = value
+            else:
+                return
+        if a == 0:
+            if kwargs is not None:
+                for key, value in kwargs.items():
+                    if key == "id":
+                        self.id = value
+                    elif key == "width":
+                        self.__width = value
+                    elif key == "height":
+                        self.__height = value
+                    elif key == "x":
+                        self.__x = value
+                    elif key == "y":
+                        self.__y = value
