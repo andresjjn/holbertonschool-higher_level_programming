@@ -23,7 +23,7 @@ class Square(Rectangle):
             Value to print"""
         return "[Square] (%d) %d/%d - %d" % \
             (self.id, self.x, self.y, self.height)
-         
+
     @property
     def size(self):
         """Getter instance size"""
@@ -37,7 +37,7 @@ class Square(Rectangle):
         """
         self.width = value
         self.height = value
-    
+
     def to_dictionary(self):
         """Method to return dictionary with all instances from Rectangle"""
         a = dict()

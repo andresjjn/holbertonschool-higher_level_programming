@@ -155,7 +155,6 @@ class Rectangle(Base):
         a["height"] = self.height
         a["width"] = self.width
         return a
-        
 
     def update(self, *args, **kwargs):
         """update method
