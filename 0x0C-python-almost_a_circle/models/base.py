@@ -75,6 +75,8 @@ class Base:
         Return:
             New instance class
         """
+        if not dictionary or type(dictionary) is not dict:
+            raise TypeError("dictionary is empy or None")
         if cls.__name__ == "Rectangle":
             a = cls(1, 1, 1, 1, 1)
             a.update(
@@ -89,7 +91,7 @@ class Base:
                 x=dictionary["x"], y=dictionary["y"])
             return b
         else:
-            return None
+            raise TypeError("%s is not valid instance")
 
     @classmethod
     def load_from_file(cls):
