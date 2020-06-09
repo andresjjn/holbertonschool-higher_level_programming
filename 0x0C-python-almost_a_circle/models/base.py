@@ -78,17 +78,12 @@ class Base:
         if not dictionary or type(dictionary) is not dict:
             raise TypeError("dictionary is empy or None")
         if cls.__name__ == "Rectangle":
-            a = cls(1, 1, 1, 1, 1)
-            a.update(
-                id=dictionary["id"], width=dictionary["width"],
-                height=dictionary["height"], x=dictionary["x"],
-                y=dictionary["y"])
+            a = cls(1, 1)
+            a.update(**dictionary)
             return a
         elif cls.__name__ == "Square":
-            b = cls(1, 1, 1, 1)
-            b.update(
-                id=dictionary["id"], size=dictionary["size"],
-                x=dictionary["x"], y=dictionary["y"])
+            b = cls(1)
+            b.update(**dictionary)
             return b
         else:
             raise TypeError("%s is not valid instance")
