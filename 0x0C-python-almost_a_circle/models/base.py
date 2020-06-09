@@ -53,12 +53,15 @@ class Base:
             JSON string representation of any position of list"""
         if not list_dictionaries:
             return "[]"
-        for i in list_dictionaries:
-            if type(i) is not dict:
+        for i in range(len(list_dictionaries)):
+            if type(list_dictionaries[i]) is not dict:
                 raise TypeError("The list not contain dictionaries")
         a = "["
         for b in range(len(list_dictionaries)):
-            a = a + json.dumps(list_dictionaries[b])
+            if b < i:
+                a = a + json.dumps(list_dictionaries[b]) + ", "
+            else:
+                a = a + json.dumps(list_dictionaries[b])
         a = a + "]"
         return a
 
