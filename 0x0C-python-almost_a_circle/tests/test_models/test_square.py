@@ -1,4 +1,3 @@
-  
 #!/usr/bin/python3
 """Unittest for entire almost circle python project
 """
@@ -88,17 +87,17 @@ class test_Square(unittest.TestCase):
     def test_str(self):
         """Public method to check __str__ method return"""
         r28 = Square(5)
-        display_example = "[Square] (2) 0/0 - 5\n"
+        display_example = "[Square] (11) 0/0 - 5\n"
         with patch('sys.stdout', new=StringIO()) as fakeOutput:
             print(r28)
         self.assertEqual(fakeOutput.getvalue(), display_example)
         r29 = Square(2, 2)
-        display_example = "[Square] (3) 2/0 - 2\n"
+        display_example = "[Square] (12) 2/0 - 2\n"
         with patch('sys.stdout', new=StringIO()) as fakeOutput:
             print(r29)
         self.assertEqual(fakeOutput.getvalue(), display_example)
         r30 = Square(3, 1, 3)
-        display_example = "[Square] (4) 1/3 - 3\n"
+        display_example = "[Square] (13) 1/3 - 3\n"
         with patch('sys.stdout', new=StringIO()) as fakeOutput:
             print(r30)
         self.assertEqual(fakeOutput.getvalue(), display_example)
@@ -274,7 +273,3 @@ class test_Square(unittest.TestCase):
             r41 = Square(1, 1)
             r41.update(**r40_dictionary)
             self.assertNotEqual(r40, r41)
-
-
-if __name__ == '__main__':
-    unittest.main()

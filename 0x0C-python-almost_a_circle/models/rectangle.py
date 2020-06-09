@@ -143,7 +143,7 @@ class Rectangle(Base):
         Return:
             Value to print"""
         return "[Rectangle] (%d) %d/%d - %d/%d" % \
-            (self.id, self.__x, self.__y, self.width, self.height)
+            (self.id, self.__x, self.__y, self.__width, self.__height)
 
     def to_dictionary(self):
         """Method to return dictionary with all instances"""

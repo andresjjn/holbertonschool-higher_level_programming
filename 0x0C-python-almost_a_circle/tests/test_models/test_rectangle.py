@@ -359,14 +359,10 @@ class test_Rectangle(unittest.TestCase):
         """Public method to check if return a dictionary"""
         r40 = Rectangle(10, 2, 1, 9)
         r40_dictionary = r40.to_dictionary()
-        r40_dictionary_test = {'x': 1, 'y': 9, 'id': 5, 'height': 2, 'width': 10}
+        r40_dictionary_test = {'x': 1, 'y': 9, 'id': 6, 'height': 2, 'width': 10}
         self.assertDictEqual(r40_dictionary, r40_dictionary_test)
         self.assertEqual(type(r40_dictionary), dict)
 
         r41 = Rectangle(1, 1)
         r41.update(**r40_dictionary)
         self.assertNotEqual(r40, r41)
-
-
-if __name__ == '__main__':
-    unittest.main()

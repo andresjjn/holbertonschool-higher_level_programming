@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """Unittest for Base class from almost circle python project
 """
+from models.base import Base
 import unittest
 import pep8
-from models.base import Base
 
 
 class Test_base(unittest.TestCase):
@@ -24,6 +24,3 @@ class Test_base(unittest.TestCase):
         self.assertEqual(b2.id, 12)
         with self.assertRaises(TypeError):
             b2 = Base(2, 2)
-
-if __name__ == '__main__':
-    unittest.main()
