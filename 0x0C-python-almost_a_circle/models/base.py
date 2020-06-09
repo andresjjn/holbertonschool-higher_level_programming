@@ -41,9 +41,10 @@ class Base:
         if json_string is None or json_string == "":
             return "[]"
         a = re.findall("{.*?}", json_string)
+        b = []
         for i in a:
-            i = json.loads(i)
-        return a
+            b.append(json.loads(i))
+        return b
 
     @staticmethod
     def to_json_string(list_dictionaries):
