@@ -64,7 +64,7 @@ class Square(Rectangle):
             elif i == 3:
                 self.y = args[i]
             else:
-                return
+                raise TypeError("Passed more than 5 args needed")
         if a == 0:
             if kwargs is not None:
                 for key, value in kwargs.items():
@@ -77,3 +77,5 @@ class Square(Rectangle):
                         self.x = value
                     elif key == "y":
                         self.y = value
+                    else:
+                        raise TypeError("Unknow argument to update")

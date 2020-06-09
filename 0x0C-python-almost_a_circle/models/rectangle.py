@@ -160,7 +160,7 @@ class Rectangle(Base):
         Args:
             All attributes"""
         a = 0
-        if not args:
+        if not args and not kwargs:
             raise TypeError("No arguments passed")
         for i in range(len(args)):
             a += 1
