@@ -101,7 +101,6 @@ class Base:
             a = []
             return a
         b = cls.from_json_string(a)
-        print(type(b[0]))
         c = []
         for i in b:
             c.append(cls.create(**i))
