@@ -24,3 +24,6 @@ class Test_base(unittest.TestCase):
         self.assertEqual(b2.id, 12)
         with self.assertRaises(TypeError):
             b2 = Base(2, 2)
+
+if __name__ == '__main__':
+    unittest.main()

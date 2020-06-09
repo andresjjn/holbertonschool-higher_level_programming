@@ -354,3 +354,19 @@ class test_Rectangle(unittest.TestCase):
             r32.update(2, 6, 5, 6, "sY CiRbo")
         with self.assertRaises(TypeError):
             r32.update(2, 6, 9, 7, ([4, 3]))
+
+    def test_to_dictionary(self):
+        """Public method to check if return a dictionary"""
+        r40 = Rectangle(10, 2, 1, 9)
+        r40_dictionary = r40.to_dictionary()
+        r40_dictionary_test = {'x': 1, 'y': 9, 'id': 5, 'height': 2, 'width': 10}
+        self.assertDictEqual(r40_dictionary, r40_dictionary_test)
+        self.assertEqual(type(r40_dictionary), dict)
+
+        r41 = Rectangle(1, 1)
+        r41.update(**r40_dictionary)
+        self.assertNotEqual(r40, r41)
+
+
+if __name__ == '__main__':
+    unittest.main()

@@ -26,8 +26,9 @@ class Base:
         Args:
             list_objs = Objets list to write in a file"""
         l = []
-        for a in list_objs:
-            l.append(a.to_dictionary())
+        if list_objs is not None:
+            for a in list_objs:
+                l.append(a.to_dictionary())
         with open("%s.json" % cls.__name__, mode='w') as f:
             f.write(Base.to_json_string(l))
 
