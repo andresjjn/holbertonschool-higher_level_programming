@@ -38,10 +38,10 @@ class Base:
         json_string
         Args:
             json_string is a string representing a list of dictionaries"""
-        if json_string is None or json_string == []:
-            return "[]"
-        a = re.findall("{.*?}", json_string)
         b = []
+        if json_string is None or json_string == "":
+            return b
+        a = re.findall("{.*?}", json_string)
         for i in a:
             b.append(json.loads(i))
         return b
