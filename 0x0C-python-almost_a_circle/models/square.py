@@ -41,10 +41,10 @@ class Square(Rectangle):
     def to_dictionary(self):
         """Method to return dictionary with all instances from Rectangle"""
         a = dict()
-        a["x"] = self.x
-        a["y"] = self.y
         a["id"] = self.id
+        a["x"] = self.x
         a["size"] = self.height
+        a["y"] = self.y
         return a
 
     def update(self, *args, **kwargs):
