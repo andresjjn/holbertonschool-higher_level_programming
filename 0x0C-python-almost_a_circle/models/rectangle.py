@@ -13,14 +13,13 @@ class Rectangle(Base):
             height (int): height of rectangle
             x (int): x position
             y (int): y coordinate"""
-
-        self.width = width
+        self.__width = width
         Rectangle.integer_validator("width", width)
-        self.height = height
+        self.__height = height
         Rectangle.integer_validator("height", height)
-        self.x = x
+        self.__x = x
         Rectangle.integer_validator("x", x)
-        self.y = y
+        self.__y = y
         Rectangle.integer_validator("y", y)
         if id is not None:
             self.id = id
@@ -62,12 +61,12 @@ class Rectangle(Base):
             width (int): Width of rectangle
             height (int): Height of rectangle
         """
-        for a in range(self.y):
+        for a in range(self.__y):
             print("")
-        for i in range(self.height):
-            for b in range(self.x):
+        for i in range(self.__height):
+            for b in range(self.__x):
                     print(" ", end="")
-            for j in range(self.width):
+            for j in range(self.__width):
                 print("#", end="")
             print("")
 
@@ -149,11 +148,11 @@ class Rectangle(Base):
     def to_dictionary(self):
         """Method to return dictionary with all instances"""
         a = dict()
-        a["x"] = self.x
-        a["y"] = self.y
+        a["x"] = self.__x
+        a["y"] = self.__y
         a["id"] = self.id
-        a["height"] = self.height
-        a["width"] = self.width
+        a["height"] = self.__height
+        a["width"] = self.__width
         return a
 
     def update(self, *args, **kwargs):
@@ -161,30 +160,42 @@ class Rectangle(Base):
         Args:
             All attributes"""
         a = 0
+        if not args:
+            raise TypeError("No arguments passed")
         for i in range(len(args)):
             a += 1
             if i == 0:
                 self.id = args[i]
             elif i == 1:
+                Rectangle.integer_validator("width", args[i])
                 self.__width = args[i]
             elif i == 2:
+                Rectangle.integer_validator("height", args[i])
                 self.__height = args[i]
             elif i == 3:
+                Rectangle.integer_validator("x", args[i])
                 self.__x = args[i]
             elif i == 4:
+                Rectangle.integer_validator("y", args[i])
                 self.__y = args[i]
             else:
-                return
+                raise TypeError("Passed more than 5 args needed")
         if a == 0:
             if kwargs is not None:
                 for key, value in kwargs.items():
                     if key == "id":
                         self.id = value
                     elif key == "width":
+                        Rectangle.integer_validator("width", value)
                         self.__width = value
                     elif key == "height":
+                        Rectangle.integer_validator("height", value)
                         self.__height = value
                     elif key == "x":
+                        Rectangle.integer_validator("x", value)
                         self.__x = value
                     elif key == "y":
+                        Rectangle.integer_validator("y", value)
                         self.__y = value
+                    else:
+                        raise TypeError("Unknow argument to update")

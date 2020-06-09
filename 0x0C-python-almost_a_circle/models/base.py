@@ -2,6 +2,7 @@
 """This file contain a class named base"""
 import json
 import re
+from inspect import getargspec
 
 
 class Base:
