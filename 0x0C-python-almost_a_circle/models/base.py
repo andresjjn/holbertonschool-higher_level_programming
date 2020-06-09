@@ -38,7 +38,7 @@ class Base:
         json_string
         Args:
             json_string is a string representing a list of dictionaries"""
-        if json_string is None or json_string == "":
+        if json_string is None or json_string == []:
             return "[]"
         a = re.findall("{.*?}", json_string)
         b = []
