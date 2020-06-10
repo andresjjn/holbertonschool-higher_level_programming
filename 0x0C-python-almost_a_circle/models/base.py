@@ -2,6 +2,7 @@
 """This file contain a class named base"""
 import json
 import re
+import csv
 from inspect import getargspec
 
 
@@ -105,3 +106,41 @@ class Base:
         for i in b:
             c.append(cls.create(**i))
         return c
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Class method that writes the csv representation of list_objs
+        to a file
+        Args:
+            list_objs = Objets list to write in a file"""
+        with open("%s.csv" % cls.__name__, mode='w') as f:
+            if cls.__name__ is "Rectangle":
+                for i in list_objs:
+                    f.write(
+                        "{},{},{},{},{}\n".format(
+                            i.id, i.width, i.height, i.x, i.y))
+            else:
+                for j in list_objs:
+                    f.write("{},{},{},{}\n"
+                            .format(j.id, j.size, j.x, j.y))
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Class method that reads the csv rep of list_objs to a file"""
+        a = []
+        with open(
+                cls.__name__ + ".csv", "r", newline="", encoding="utf-8") as f:
+            csv1 = csv.reader(f)
+            if cls.__name__ is "Rectangle":
+                for l in csv1:
+                    keys = [int(x) for x in l]
+                    i = {"id": keys[0], "width": keys[1], "height": keys[2],
+                         "x": keys[3], "y": keys[4]}
+                    a.append(cls.create(**i))
+            else:
+                for l in csv1:
+                    keys = [int(x) for x in l]
+                    i = {"id": keys[0], "size": keys[1], "x": keys[2],
+                         "y": keys[3]}
+                    a.append(cls.create(**i))
+        return a
