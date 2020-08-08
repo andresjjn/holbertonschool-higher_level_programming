@@ -13,7 +13,7 @@ def mysqlconnect():
         print("Can't connect to database")
         return
     cursor = connection.cursor()
-    cursor.execute("SELECT states.id, states.name FROM
+    cursor.execute("SELECT states.id, states.name FROM\
                    states ORDER BY states.id ASC")
     records = cursor.fetchall()
     for row in records:
