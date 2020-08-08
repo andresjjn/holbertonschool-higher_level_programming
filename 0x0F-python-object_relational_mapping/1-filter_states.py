@@ -17,7 +17,8 @@ def mysqlconnect():
         return
     cursor = connection.cursor()
     cursor.execute("SELECT states.id, states.name FROM\
-                   states WHERE states.name LIKE BINARY 'N%' ORDER BY states.id ASC")
+                   states WHERE states.name LIKE BINARY 'N%'\
+                   ORDER BY states.id ASC")
     records = cursor.fetchall()
     for row in records:
         print("({}, '{}')".format(row[0], row[1]))
