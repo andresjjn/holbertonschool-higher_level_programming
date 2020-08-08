@@ -20,5 +20,5 @@ def mysqlconnect():
         print("({}, '{}')".format(row[0], row[1]))
     cursor.close()
     connection.close()
-
-mysqlconnect()
+if __name__ == "__main__":
+    mysqlconnect()
