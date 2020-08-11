@@ -23,11 +23,13 @@ def filter_all_cities_by_state():
                    cities.id ASC""", (name, ))
     records = cursor.fetchall()
     lis = []
-    for city in records:
-        lis.append(city[0])
+    if records is not None:
+        for city in records:
+            lis.append(city[0])
     print(", ".join(lis))
     cursor.close()
     connection.close()
+
 if __name__ == "__main__":
     filter_all_cities_by_state()
 
