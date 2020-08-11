@@ -20,10 +20,10 @@ def filter_cities_by_states():
                    cities, states WHERE cities.state_id=states.id\
                    ORDER BY cities.id ASC""")
     records = cursor.fetchall()
-    print(records)
     for state in records:
         print("{}".format(state))
     cursor.close()
     connection.close()
+
 if __name__ == "__main__":
     filter_cities_by_states()
