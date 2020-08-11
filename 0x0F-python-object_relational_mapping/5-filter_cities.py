@@ -18,7 +18,7 @@ def filter_all_cities_by_state():
         print("Can't connect to database")
         return
     cursor = connection.cursor()
-    cursor.execute("""SELECT cities.name FROM cities LEFT JOIN states ON 
+    cursor.execute("""SELECT cities.name FROM cities LEFT JOIN states ON
                    cities.state_id=states.id WHERE states.name=(%s) ORDER BY
                    cities.id ASC""", (name, ))
     records = cursor.fetchall()
@@ -32,4 +32,3 @@ def filter_all_cities_by_state():
 
 if __name__ == "__main__":
     filter_all_cities_by_state()
-
