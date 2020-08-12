@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """Script that lists all State objects from the database hbtn_0e_6_usa"""
 import sys
-from model_state import Base, State
-from model_city import City
+from relationship_state import Base, State
+from relationship_city import City
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 
@@ -16,7 +16,7 @@ if __name__ == "__main__":
     new_state = State(name="California")
     new_city = City(name="San Francisco")
     new_state.cities.append(new_city)
-    sesion.add(new_state)
-    sesion.add(new_city)
+    session.add(new_state)
+    session.add(new_city)
     session.commit()
     session.close()
