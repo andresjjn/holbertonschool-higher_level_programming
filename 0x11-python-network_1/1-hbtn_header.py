@@ -5,6 +5,8 @@ from sys import argv
 from urllib import request, parse
 
 
+if not argv[1]:
+    return
 with request.urlopen(argv[1]) as response:
     res = response.read()
     headers = dict(response.info())
