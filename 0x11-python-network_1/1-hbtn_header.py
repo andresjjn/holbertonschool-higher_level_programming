@@ -6,7 +6,10 @@ from urllib import request
 
 
 if len(argv) is 2:
-    with request.urlopen(argv[1]) as response:
-        res = response.read()
-        headers = dict(response.info())
-        print(headers['X-Request-Id'])
+    try:
+        with request.urlopen(argv[1]) as response:
+            res = response.read()
+            headers = dict(response.info())
+            print(headers['X-Request-Id'])
+    except:
+        pass
