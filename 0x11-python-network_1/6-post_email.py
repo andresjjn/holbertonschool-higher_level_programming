@@ -9,7 +9,7 @@ import requests
 if len(argv) is 3:
     try:
         param = {'email': argv[2]}
-        r = requests.post(argv[1], data=payload)
-        print(r.text)
+        res = requests.post(argv[1], data=param)
+        print(res.text)
     except:
         pass
