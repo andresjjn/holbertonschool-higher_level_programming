@@ -7,8 +7,10 @@ import requests
 
 if len(argv) is 2:
     try:
-        res = requests.post(argv[1])
+        res = requests.get(argv[1])
         if res.status_code >= 400:
             print("Error code: {}".format(res.status_code))
+        else:
+            print(res.text)
     except:
         pass
