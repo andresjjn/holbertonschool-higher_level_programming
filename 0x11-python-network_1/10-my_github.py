@@ -6,7 +6,7 @@ import requests
 
 
 if len(argv) is 3:
-    token = 'ff39112b091eec7c148d79d532fb26a5c2b8c206'
+    token = '23a072cc28bd260f96e745ebdd60566edcd8b24c'
     if token == argv[2]:
         user = argv[1]
         try:
