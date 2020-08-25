@@ -10,7 +10,7 @@ if len(argv) is 3:
     user = argv[1]
     try:
         res = requests.get('https://api.github.com/user',
-                            auth=(user, token))
+                           auth=(user, token))
         yeison = res.json()
         print("{}".format(yeison.get('id')))
     except:
