@@ -6,15 +6,12 @@ import requests
 
 
 if len(argv) is 3:
-    token = '23a072cc28bd260f96e745ebdd60566edcd8b24c'
-    if token == argv[2]:
-        user = argv[1]
-        try:
-            res = requests.get('https://api.github.com/user',
-                               auth=(user, token))
-            yeison = res.json()
-            print("{}".format(yeison.get('id')))
-        except:
-            pass
-    else:
-        print(None)
+    token = argv[2]
+    user = argv[1]
+    try:
+        res = requests.get('https://api.github.com/user',
+                            auth=(user, token))
+        yeison = res.json()
+        print("{}".format(yeison.get('id')))
+    except:
+        print("None")
