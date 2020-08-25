@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This script allow a connection with a web page using urllib"""
+"""This script that fetches https://intranet.hbtn.io/status"""
 import requests
 
 
