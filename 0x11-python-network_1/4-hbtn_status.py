@@ -1,11 +1,8 @@
 #!/usr/bin/python3
 """This script allow a connection with a web page using urllib"""
-import urllib
-from urllib import request
+import requests
 
 
-with urllib.request.urlopen('https://intranet.hbtn.io/status') as response:
-    res = response.read().decode('utf-8')
-    print(
-        "Body response:\n\t- type: {}\n\t- content: {}"
-        .format(type(res), res))
+res = requests.get('https://intranet.hbtn.io/status')
+print("Body response:\n\t- type: {}\n\t- content: {}"
+      .format(type(res.text), res.text))
