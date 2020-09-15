@@ -1,9 +1,13 @@
 #!/usr/bin/node
 const a = parseInt(process.argv[2]);
-let b = 1;
-if (!isNaN(a)) {
-  for (let index = 1; index <= a; index++) {
-    b = b * index;
+function factorial (x) {
+  if (x === 0) {
+    return 1;
   }
+  return x * factorial(x - 1);
 }
-console.log(b);
+if (!isNaN(a)) {
+  console.log(factorial(a));
+} else {
+  console.log(1);
+}
