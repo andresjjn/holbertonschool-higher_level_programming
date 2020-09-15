@@ -1,7 +1,6 @@
 #!/usr/bin/node
-function callMeMoby (x, theFunction) {
+exports.callMeMoby = function (x, theFunction) {
   theFunction();
   theFunction();
   theFunction();
-}
-exports.callMeMoby = callMeMoby;
+};
