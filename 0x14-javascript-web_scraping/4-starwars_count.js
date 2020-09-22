@@ -7,7 +7,7 @@ request(movies, (err, response, body) => {
     const info = JSON.parse(body);
     for (let i = 0; i < info.results.length; i++) {
       for (const j in info.results[i].characters) {
-        if (info.results[i].characters[j] === 'https://swapi-api.hbtn.io/api/people/18/') {
+        if (info.results[i].characters[j].includes('18')) {
           counter += 1;
         }
       }
