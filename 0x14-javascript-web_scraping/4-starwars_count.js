@@ -1,9 +1,6 @@
 #!/usr/bin/node
 const request = require('request');
 const movies = process.argv[2];
-if (!movies) {
-  process.exit().
-}
 let counter = 0;
 request(movies, (err, response, body) => {
   if (!err && response.statusCode === 200) {
